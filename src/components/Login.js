@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {auth} from "../utils/firebase";
 
 const Login = () => {
     const [isSignIn, setIsSignIn] = useState(true);
@@ -25,6 +27,39 @@ const Login = () => {
         const message = checkValidData(emailValue, passwordValue, nameValue);
         // console.log(name);
         setErrMessage(message);
+
+        if(message) return;
+        if(!isSignIn){
+            // Sign Up Logic
+            createUserWithEmailAndPassword(auth, emailValue, passwordValue)
+            .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+                console.log(user);
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setErrMessage(errorCode+"-"+errMessage);
+                // ..
+            });
+        }
+        else {
+            // Sign In Logic
+            signInWithEmailAndPassword(auth, emailValue, passwordValue)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user);
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setErrMessage(errorCode+"-"+errMessage);
+            });
+        }
     }
 
     return(
@@ -40,7 +75,7 @@ const Login = () => {
                 {!isSignIn && (
                 <input 
                 ref={name}
-                type="text"  
+                type="text"   
                 placeholder="Full Name" 
                 className="p-2 my-2 bg-[#333333] rounded w-full" />
                 )}
