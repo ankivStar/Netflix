@@ -1,7 +1,10 @@
-import { configure } from "@testing-library/react";
+import { configureStore } from "@reduxjs/toolkit";
+import userReducer from "./userSlice"
 
-const appStore = configure({
-    reducer : {}
+const appStore = configureStore({
+    reducer : {
+        user : userReducer,
+    }
 })
 
 export default appStore
