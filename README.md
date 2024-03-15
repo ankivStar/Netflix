@@ -39,6 +39,7 @@
 - GPT search page 
 - GPT search Bar 
 - Multi-language feature in our app
+- added memoization to our app
 
 # Features
 
