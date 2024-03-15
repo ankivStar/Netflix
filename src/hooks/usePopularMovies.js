@@ -12,7 +12,7 @@ const usePopularMovies = () =>{
       "https://api.themoviedb.org/3/movie/popular", API_OPTIONS
       );
       const json = await data.json();
-      console.log(json);
+      // console.log(json);
       dispatch(addPopularMovies(json.results));
     }
     

@@ -5,7 +5,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfi
 import {auth} from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import { PHOTO_URL } from "../utils/constants";
+import { BG_URL, PHOTO_URL } from "../utils/constants";
 
 const Login = () => {
     const [isSignIn, setIsSignIn] = useState(true);
@@ -81,7 +81,7 @@ const Login = () => {
             <Header/>
             <div className="absolute">
                 <img className="min-h-screen object-cover"
-                    src="https://assets.nflxext.com/ffe/siteui/vlv3/c38a2d52-138e-48a3-ab68-36787ece46b3/eeb03fc9-99c6-438e-824d-32917ce55783/IN-en-20240101-popsignuptwoweeks-perspective_alpha_website_large.jpg" alt=""/>
+                    src={BG_URL} alt=""/>
             </div>
             <form onSubmit={(e)=>e.preventDefault()} className="w-[320px] absolute p-8 bg-black my-36 mx-auto right-0 left-0 bg-opacity-90 flex flex-col items-center text-white">
                 <h1 className="font-bold text-3xl py-4 my-2 self-start">{isSignIn ? "Sign In" : "Sign Up"}
