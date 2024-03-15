@@ -1,0 +1,5 @@
+# Set the default behavior to normalize line endings
+* text=auto
+
+# Declare files that will always have CRLF line endings on checkout.
+*.json text eol=crlf
