@@ -1,8 +1,10 @@
+import { useDispatch, useSelector } from "react-redux";
 import { BG_URL } from "../utils/constants";
 import GptMovieSugggestions from "./GptMovieSuggestions";
 import GptSearchBar from "./GptSearchBar";
 
 const GPTSearch = ()=>{
+
     return (
         <div>
             <div className="absolute -z-10">
