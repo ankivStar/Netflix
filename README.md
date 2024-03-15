@@ -36,6 +36,9 @@
 - Made the browse page amazing with tailwind css
 - use more custom hooks
 - GPT Search Feature  
+- GPT search page 
+- GPT search Bar 
+- Multi-language feature in our app
 
 # Features
 
