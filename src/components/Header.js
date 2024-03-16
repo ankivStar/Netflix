@@ -46,7 +46,7 @@ const Header = () => {
         
         //Unsubscribe when component unmount 
         return () => unsubscribe();
-    }, [dispatch, navigate]);
+    }, [dispatch, showGptSearch, navigate]);
 
     const handleGptSearchClick=()=>{
         //Toggle GPT Search
@@ -84,7 +84,7 @@ const Header = () => {
                         alt="usericon"
                         src={user.photoURL}
                     />
-                    <button onClick={handleSignOut} className="font-bold text-white">(Sign Out)</button>
+                    <button onClick={handleSignOut} className="py-1 px-1 mx-1 my-4 bg-orange-800 text-white font-bold">Sign Out</button>
                 </div>
             )}
         </div>
