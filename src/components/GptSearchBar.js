@@ -20,7 +20,7 @@ const GptSearchBar = ()=>{
             //TODO : Write error handling
         }
         // console.log(gptResults.choices)
-        const gptMovies = gptResults.choices?.[0]?.message?.content.split(",")
+        // const gptMovies = gptResults.choices?.[0]?.message?.content.split(",")
     }
 
     return (

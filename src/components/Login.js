@@ -52,13 +52,13 @@ const Login = () => {
                         })
                     );
                   }).catch((error) => {
-                    setErrMessage(errMessage)
+                    setErrMessage(error.message)
                   }); 
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                setErrMessage(errorCode+"-"+errMessage);
+                setErrMessage(errorCode+"-"+errorMessage);
                 // ..
             });
         }
@@ -71,7 +71,7 @@ const Login = () => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                setErrMessage(errorCode+"-"+errMessage);
+                setErrMessage(errorCode+"-"+errorMessage);
             });
         }
     }
