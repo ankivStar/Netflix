@@ -40,6 +40,7 @@
 - GPT search Bar 
 - Multi-language feature in our app
 - added memoization to our app
+- made app responsive for different size devices
 
 # Features
 
