@@ -7,21 +7,21 @@ const useUpcomingMovies = () =>{
   //Fetch data from TMDB API and update store
   const dispatch = useDispatch();
   const upcomingMovies = useSelector((store)=>store.movies.upcomingMovies)
-
-  const getUpcomingMovies = async () =>{
-    const data = await fetch(
+ 
+  useEffect(()=>{
+    const getUpcomingMovies = async () =>{
+      const data = await fetch(
       "https://api.themoviedb.org/3/movie/upcoming", API_OPTIONS
       );
       const json = await data.json();
       // console.log(json);
       dispatch(addUpcomingMovies(json.results));
     }
-    
-    useEffect(()=>{
-      if(!upcomingMovies){
-        getUpcomingMovies();
-      }
-    }, [upcomingMovies, getUpcomingMovies])  
+
+    if(!upcomingMovies){
+      getUpcomingMovies();
+    }
+  }, [])  
 }
 
 export default useUpcomingMovies;

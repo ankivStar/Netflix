@@ -3,30 +3,31 @@ import { API_OPTIONS } from "../utils/constants";
 import { addTrailerVideo } from "../utils/moviesSlice";
 import { useEffect } from "react";
 
-const useMovieTrailer = (movieId) =>{
+const useMovieTrailer = (movieId) => {
 
     const dispatch = useDispatch();
-    const trailerVideo = useSelector((store)=>store.movies.trailerVideo);
-    // fetch trailer video
-    const getMoviesVideo = async () =>{
-        const data = await fetch(
-            "https://api.themoviedb.org/3/movie/"+movieId+"/videos?language=en-US",
-            API_OPTIONS
-        )
+    const trailerVideo = useSelector((store) => store.movies.trailerVideo);
 
-        const json = await data.json();
-        // console.log(json);
+    useEffect(() => {
+        // Define getMoviesVideo inside useEffect
+        const getMoviesVideo = async () => {
+            const data = await fetch(
+                "https://api.themoviedb.org/3/movie/" + movieId + "/videos?language=en-US",
+                API_OPTIONS
+            )
 
-        const filterData = json.results.filter((video)=>video.type==="Trailer")
-        const trailer = filterData.length ? filterData[0] : json.results[0];
-        dispatch(addTrailerVideo(trailer));
-    }
+            const json = await data.json();
+            // console.log(json);
 
-    useEffect(()=>{
-        if(!trailerVideo){
+            const filterData = json.results.filter((video) => video.type === "Trailer")
+            const trailer = filterData.length ? filterData[0] : json.results[0];
+            dispatch(addTrailerVideo(trailer));
+        }
+
+        if (!trailerVideo) {
             getMoviesVideo();
         }
-    },[getMoviesVideo, trailerVideo])
+    }, []); // Include dependencies in the dependency array
 }
 
 export default useMovieTrailer;
