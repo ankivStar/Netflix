@@ -21,7 +21,7 @@ const usePopularMovies = () =>{
     if(!popularMovies){
       getPopularMovies();
     }
-  }, [])  
+  }, [dispatch, popularMovies])  
 }
 
 export default usePopularMovies;

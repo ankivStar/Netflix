@@ -27,7 +27,7 @@ const useMovieTrailer = (movieId) => {
         if (!trailerVideo) {
             getMoviesVideo();
         }
-    }, []); // Include dependencies in the dependency array
+    }, [dispatch, movieId, trailerVideo]); // Include dependencies in the dependency array
 }
 
 export default useMovieTrailer;
