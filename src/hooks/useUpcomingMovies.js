@@ -21,7 +21,7 @@ const useUpcomingMovies = () =>{
       if(!upcomingMovies){
         getUpcomingMovies();
       }
-    }, [])  
+    }, [upcomingMovies, getUpcomingMovies])  
 }
 
 export default useUpcomingMovies;

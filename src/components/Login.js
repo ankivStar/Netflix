@@ -66,7 +66,7 @@ const Login = () => {
             // Sign In Logic
             signInWithEmailAndPassword(auth, emailValue, passwordValue)
             .then((userCredential) => {
-                const user = userCredential.user;
+                // const user = userCredential.user;
             })
             .catch((error) => {
                 const errorCode = error.code;

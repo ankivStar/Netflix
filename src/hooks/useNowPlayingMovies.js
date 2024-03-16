@@ -22,7 +22,7 @@ const useNowPlayingMovies = () =>{
     if(!nowPlayingMovies){
        getNowPlayingMovies();
     }
-    }, [])  
+    }, [nowPlayingMovies, getNowPlayingMovies])  
 }
 
 export default useNowPlayingMovies;

@@ -26,7 +26,7 @@ const useMovieTrailer = (movieId) =>{
         if(!trailerVideo){
             getMoviesVideo();
         }
-    },[])
+    },[getMoviesVideo, trailerVideo])
 }
 
 export default useMovieTrailer;
